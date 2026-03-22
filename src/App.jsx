@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
+import "./App.css";
 
 function App() {
   const [page, setPage] = useState("signup");
@@ -9,20 +10,35 @@ function App() {
   return (
     <div className="app-container">
       <div className="card">
+
         {user ? (
           <>
             <h2>Welcome, {user.fullName} 👋</h2>
-            <button onClick={() => setUser(null)}>Logout</button>
+            <p className="sub-text">You are successfully logged in.</p>
+
+            <button
+              onClick={() => {
+                console.log("User logged out");
+                setUser(null);
+                setPage("login");
+              }}
+            >
+              Logout
+            </button>
           </>
         ) : (
           <>
             {page === "signup" ? (
               <>
                 <h2>Create Account</h2>
-                <Signup />
-                <p>
-                  Already have an account?{""}
-                  <button className="switch-btn" onClick={() => setPage("login")}>
+                <Signup setPage={setPage} />
+
+                <p className="switch-text">
+                  Already have an account?
+                  <button
+                    className="switch-btn"
+                    onClick={() => setPage("login")}
+                  >
                     Login
                   </button>
                 </p>
@@ -31,9 +47,13 @@ function App() {
               <>
                 <h2>Login</h2>
                 <Login setUser={setUser} />
-                <p>
-                  Don't have an account?{" "}
-                  <button className="switch-btn" onClick={() => setPage("signup")}>
+
+                <p className="switch-text">
+                  Don’t have an account?
+                  <button
+                    className="switch-btn"
+                    onClick={() => setPage("signup")}
+                  >
                     Sign Up
                   </button>
                 </p>
@@ -41,6 +61,7 @@ function App() {
             )}
           </>
         )}
+
       </div>
     </div>
   );

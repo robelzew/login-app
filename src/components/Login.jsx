@@ -16,14 +16,17 @@ function Login({ setUser }) {
     );
 
     if (found) {
+      console.log("User logged in:", found);
       setUser(found);
     } else {
+      console.log("Login failed attempt");
       alert("Login failed!");
     }
   };
 
   return (
-    <form onSubmit={handleLogin}>
+    <form onSubmit={handleLogin} className="form">
+
       <select value={type} onChange={(e) => setType(e.target.value)}>
         <option value="username">Username</option>
         <option value="email">Email</option>
@@ -31,7 +34,7 @@ function Login({ setUser }) {
       </select>
 
       <input
-        placeholder={`Enter ${type}`}
+        placeholder={`Enter your ${type}`}
         value={value}
         onChange={(e) => setValue(e.target.value)}
         required
@@ -45,8 +48,12 @@ function Login({ setUser }) {
         required
       />
 
-      <button type="button" onClick={() => setShowPassword(!showPassword)}>
-        👁 {showPassword ? "Hide" : "Show"} Password
+      <button
+        type="button"
+        className="small-btn"
+        onClick={() => setShowPassword(!showPassword)}
+      >
+        {showPassword ? "Hide Password" : "Show Password"}
       </button>
 
       <button type="submit">Login</button>

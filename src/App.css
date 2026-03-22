@@ -1,53 +1,50 @@
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
 }
 
-/* Center everything */
+/* center app */
 .app-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
 }
 
-/* Glass card */
+/* card */
 .card {
   background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(15px);
-  padding: 40px;
-  border-radius: 15px;
-  width: 320px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-  color: white;
+  padding: 30px;
+  border-radius: 20px;
+  width: 340px;
   text-align: center;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* Inputs */
+/* form layout */
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* inputs */
 input, select {
-  width: 100%;
+  margin: 8px 0;
   padding: 12px;
-  margin: 10px 0;
-  border-radius: 8px;
+  border-radius: 10px;
   border: none;
   outline: none;
-  background: rgba(255,255,255,0.2);
-  color: white;
 }
 
-input::placeholder {
-  color: #eee;
-}
-
-/* Button */
+/* buttons */
 button {
-  width: 100%;
+  margin-top: 12px;
   padding: 12px;
-  margin-top: 15px;
   border: none;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #ff7eb3, #ff758c);
+  border-radius: 10px;
+  background: #ff7eb3;
   color: white;
   font-weight: bold;
   cursor: pointer;
@@ -56,30 +53,34 @@ button {
 
 button:hover {
   transform: scale(1.05);
-  opacity: 0.9;
 }
 
-/* Switch link */
+/* small button */
+.small-btn {
+  background: transparent;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* text */
+.switch-text {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
 .switch-btn {
   background: none;
   border: none;
-  color: #fff;
+  color: white;
+  margin-left: 5px;
   cursor: pointer;
   text-decoration: underline;
 }
 
-/* Animation */
-form {
-  animation: fadeIn 0.5s ease-in-out;
+.sub-text {
+  font-size: 14px;
+  opacity: 0.8;
 }
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+input[type="date"] {
+  color: white;
 }
